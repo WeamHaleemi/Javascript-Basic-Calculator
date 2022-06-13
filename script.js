@@ -22,7 +22,7 @@ function calculate(operand1, operand2, operation) {
     default:
       return;
   }
-  return computation.toFixed(3);
+  if(computation !=undefined) return parseFloat(computation.toFixed(3));
 }
 
 let numberHandler = (event) => {
@@ -64,7 +64,7 @@ let equalHandler = () => {
     console.log(parseFloat(currentnum));
   }
   if (numbers.length == 1) {
-    display.innerHTML = numbers[0].toFixed(3);
+    display.innerHTML = numbers[0].toFixed(3) + "";
     currentnum = "";
     return;
   }
