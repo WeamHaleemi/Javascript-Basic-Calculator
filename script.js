@@ -50,13 +50,6 @@ let operationHandler = (event) => {
   currentnum = "";
   display.innerHTML += operation + " ";
 };
-let delHandler = () => {
-    if (currentnum == "") return;
-    let arr = display.innerHTML.split(" ");
-    currentnum = currentnum.slice(0, -1);
-    arr[arr.length - 1] = currentnum;
-  display.innerHTML = arr.join('');
-};
 
 let equalHandler = () => {
   if (currentnum != "") {
@@ -102,7 +95,6 @@ const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const display = document.querySelector(".display");
 console.log(display);
-const del = document.querySelector("[data-delete]");
 const clear = document.querySelector("[data-clear]");
 const equal = document.querySelector("[data-equal]");
 
@@ -115,7 +107,7 @@ operationButtons.forEach((operation) =>
     operationHandler.bind(operation.innerText)
   )
 );
-del.addEventListener("click", delHandler);
+
 equal.addEventListener("click", equalHandler);
 clear.addEventListener("click", () => {
   currentnum = "";
